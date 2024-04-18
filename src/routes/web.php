@@ -11,6 +11,19 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+Route::get('/', 'BooksController@show');
+
+Route::post('/book', function (Request $request) {
+  //
+});
+
+Route::get('/book', function (Request $request) {
+  //
+});
+
+/**
+* Delete Task
+*/
+Route::delete('/book/{book}', function (Task $task) {
+  //
 });
