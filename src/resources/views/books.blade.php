@@ -52,12 +52,7 @@
                     <!-- Table Headings -->
                     <thead>
                         <th>Title</th>
-                        <th>&nbsp;</th>
-                    </thead>
-
-                    <thead>
                         <th>Author</th>
-                        <th>&nbsp;</th>
                     </thead>
  
                     <!-- Table Body -->
