@@ -13,9 +13,7 @@
 
 Route::get('/', 'BooksController@show');
 
-Route::post('/book', function (Request $request) {
-  //
-});
+Route::post('/book', 'BooksController@add');
 
 Route::get('/book', function (Request $request) {
   //

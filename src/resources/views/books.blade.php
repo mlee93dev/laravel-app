@@ -39,5 +39,48 @@
         </form>
     </div>
  
-    <!-- TODO: Current Tasks -->
+    <!-- Current Books -->
+    @if (count($books) > 0)
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                Current Books
+            </div>
+ 
+            <div class="panel-body">
+                <table class="table table-striped task-table">
+ 
+                    <!-- Table Headings -->
+                    <thead>
+                        <th>Title</th>
+                        <th>&nbsp;</th>
+                    </thead>
+
+                    <thead>
+                        <th>Author</th>
+                        <th>&nbsp;</th>
+                    </thead>
+ 
+                    <!-- Table Body -->
+                    <tbody>
+                        @foreach ($books as $book)
+                            <tr>
+                                <!-- Book Title -->
+                                <td class="table-text">
+                                    <div>{{ $book->title }}</div>
+                                </td>
+
+                                <td class="table-text">
+                                    <div>{{ $book->author }}</div>
+                                </td>
+ 
+                                <td>
+                                    <!-- TODO: Delete Button -->
+                                </td>
+                            </tr>
+                        @endforeach
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    @endif
 @endsection
