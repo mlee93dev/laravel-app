@@ -10,12 +10,21 @@
         <form action="{{ url('book') }}" method="POST" class="form-horizontal">
             {{ csrf_field() }}
  
-            <!-- Book Name -->
+            <!-- Book Title -->
             <div class="form-group">
-                <label for="book" class="col-sm-3 control-label">Book</label>
+                <label for="book" class="col-sm-3 control-label">Title *</label>
  
-                <div class="col-sm-6">
-                    <input type="text" name="name" id="book-name" class="form-control">
+                <div class="col-sm-2">
+                    <input type="text" name="title" id="title" class="form-control">
+                </div>
+            </div>
+
+            <!-- Book Author -->
+            <div class="form-group">
+                <label for="book" class="col-sm-3 control-label">Author *</label>
+          
+                <div class="col-sm-2">
+                    <input type="text" name="author" id="author" class="form-control">
                 </div>
             </div>
  
