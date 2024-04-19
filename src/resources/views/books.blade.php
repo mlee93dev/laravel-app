@@ -45,36 +45,43 @@
     <!-- Books List -->
     @if (count($books) > 0)
         <div class="panel panel-default"> 
-            <div class="panel-body">
-                <table class="table table-striped task-table">
- 
-                    <!-- Table Headings -->
-                    <thead>
-                        <th>Title</th>
-                        <th>Author</th>
-                    </thead>
- 
-                    <!-- Table Body -->
-                    <tbody>
-                        @foreach ($books as $book)
-                            <tr>
-                                <!-- Book Title -->
-                                <td class="table-text">
-                                    <div>{{ $book->title }}</div>
-                                </td>
+            <table class="table table-bordered">
 
-                                <td class="table-text">
-                                    <div>{{ $book->author }}</div>
-                                </td>
- 
-                                <td>
-                                    <!-- TODO: Delete Button -->
-                                </td>
-                            </tr>
-                        @endforeach
-                    </tbody>
-                </table>
-            </div>
+                <!-- Table Headings -->
+                <thead>
+                    <th>Title</th>
+                    <th>Author</th>
+                    <th class="text-center">Delete</th>
+                </thead>
+
+                <!-- Table Body -->
+                <tbody>
+                    @foreach ($books as $book)
+                        <tr>
+                            <!-- Book Title -->
+                            <td class="col-sm-7">
+                                <div>{{ $book->title }}</div>
+                            </td>
+
+                            <td class="table-text">
+                                <div>{{ $book->author }}</div>
+                            </td>
+
+                            <!-- Delete Button -->
+                            <td class="col-sm-1 text-center">
+                              <form action="{{ url('book/'.$book->id) }}" method="POST">
+                                  {{ csrf_field() }}
+                                  {{ method_field('DELETE') }}
+                      
+                                  <button type="submit" class="btn btn-danger">
+                                      <i class="fa fa-trash"></i>
+                                  </button>
+                              </form>
+                          </td>
+                        </tr>
+                    @endforeach
+                </tbody>
+            </table>
         </div>
     @endif
 @endsection

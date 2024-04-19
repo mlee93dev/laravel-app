@@ -19,9 +19,6 @@ Route::get('/book', function (Request $request) {
   //
 });
 
-/**
-* Delete Task
-*/
-Route::delete('/book/{book}', function (Task $task) {
+Route::delete('/book/{book}', function (Book $book) {
   //
 });
