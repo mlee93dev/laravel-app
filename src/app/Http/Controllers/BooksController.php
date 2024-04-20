@@ -37,4 +37,11 @@ class BooksController extends Controller
     
       return redirect('/');
     }
+
+    public function delete(Book $book)
+    {
+      $book->delete();
+ 
+      return redirect('/');
+    }
 }

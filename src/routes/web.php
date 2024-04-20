@@ -19,6 +19,4 @@ Route::get('/book', function (Request $request) {
   //
 });
 
-Route::delete('/book/{book}', function (Book $book) {
-  //
-});
+Route::delete('/book/{book}', 'BooksController@delete');
