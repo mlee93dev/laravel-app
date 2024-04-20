@@ -44,4 +44,23 @@ class BooksController extends Controller
  
       return redirect('/');
     }
+
+    public function update(Request $request, $id)
+    {
+      $validator = Validator::make($request->all(), [
+        'author_input_'.$id => 'required|max:255'
+      ]);
+    
+      if ($validator->fails()) {
+        return redirect('/')
+            ->withInput()
+            ->withErrors($validator);
+      }
+
+      $book = Book::where('id', $id)->update([
+        'author' => $request->get('author_input_'.$id)
+      ]);
+
+      return redirect('/');
+    }
 }

@@ -15,8 +15,10 @@ Route::get('/', 'BooksController@show');
 
 Route::post('/book', 'BooksController@add');
 
+Route::patch('/book/{id}', 'BooksController@update')->name('book.update');
+
 Route::get('/book', function (Request $request) {
   //
 });
 
-Route::delete('/book/{book}', 'BooksController@delete');
+Route::delete('/book/{id}', 'BooksController@delete');

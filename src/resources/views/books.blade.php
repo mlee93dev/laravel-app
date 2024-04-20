@@ -45,31 +45,31 @@
     <script>
       function editAuthor(id)
       {
-          document.getElementById(`author-span-${id}`).classList.add("hidden");
-          document.getElementById(`author-input-${id}`).classList.remove("hidden");
-          document.getElementById(`author-edit-${id}`).classList.add("hidden");
-          document.getElementById(`author-save-${id}`).classList.remove("hidden");
-          document.getElementById(`author-cancel-${id}`).classList.remove("hidden");
+          document.getElementById(`author_span_${id}`).classList.add("hidden");
+          document.getElementById(`author_input_${id}`).classList.remove("hidden");
+          document.getElementById(`author_edit_${id}`).classList.add("hidden");
+          document.getElementById(`author_save_${id}`).classList.remove("hidden");
+          document.getElementById(`author_cancel_${id}`).classList.remove("hidden");
       }
 
       function saveAuthor(id)
       {
-          document.getElementById(`author-span-${id}`).innerText = document.getElementById(`author-input-${id}`).value;
+          document.getElementById(`author_span_${id}`).innerText = document.getElementById(`author_input_${id}`).value;
 
-          document.getElementById(`author-span-${id}`).classList.remove("hidden");
-          document.getElementById(`author-input-${id}`).classList.add("hidden");
-          document.getElementById(`author-edit-${id}`).classList.remove("hidden");
-          document.getElementById(`author-save-${id}`).classList.add("hidden");
-          document.getElementById(`author-cancel-${id}`).classList.add("hidden");
+          document.getElementById(`author_span_${id}`).classList.remove("hidden");
+          document.getElementById(`author_input_${id}`).classList.add("hidden");
+          document.getElementById(`author_edit_${id}`).classList.remove("hidden");
+          document.getElementById(`author_save_${id}`).classList.add("hidden");
+          document.getElementById(`author_cancel_${id}`).classList.add("hidden");
       }
 
       function cancelEditAuthor(id)
       {
-          document.getElementById(`author-span-${id}`).classList.remove("hidden");
-          document.getElementById(`author-input-${id}`).classList.add("hidden");
-          document.getElementById(`author-edit-${id}`).classList.remove("hidden");
-          document.getElementById(`author-save-${id}`).classList.add("hidden");
-          document.getElementById(`author-cancel-${id}`).classList.add("hidden");
+          document.getElementById(`author_span_${id}`).classList.remove("hidden");
+          document.getElementById(`author_input_${id}`).classList.add("hidden");
+          document.getElementById(`author_edit_${id}`).classList.remove("hidden");
+          document.getElementById(`author_save_${id}`).classList.add("hidden");
+          document.getElementById(`author_cancel_${id}`).classList.add("hidden");
       }
     </script>
 
@@ -95,23 +95,23 @@
                             </td>
 
                             <td class="table-text col-sm-4">
-                              <form action="" method="POST">
+                              <form action="{{ route('book.update',['id' => $book->id]) }}" method="POST">
                                 {{ csrf_field() }}
                                 {{ method_field('PATCH') }}
-                                <span id="author-span-{{ $book->id }}">{{ $book->author }}</span>
-                                <input id="author-input-{{ $book->id }}" class="hidden" type="text" value="{{ $book->author }}">
+                                <span id="author_span_{{ $book->id }}">{{ $book->author }}</span>
+                                <input id="author_input_{{ $book->id }}" name="author_input_{{ $book->id }}" class="hidden" type="text" value="{{ $book->author }}">
 
-                                <div class="pull-right hidden" id="author-cancel-{{ $book->id }}">
+                                <div class="pull-right hidden" id="author_cancel_{{ $book->id }}">
                                   <button onclick="cancelEditAuthor({{ $book->id }});" type="button" class="btn btn-danger">
                                     <i class="fa fa-times-circle-o" aria-hidden="true"></i>
                                   </button>
                                 </div>
-                                <div class="pull-right hidden" id="author-save-{{ $book->id }}">
-                                  <button onclick="saveAuthor({{ $book->id }});" type="button" class="btn btn-info">
+                                <div class="pull-right hidden" id="author_save_{{ $book->id }}">
+                                  <button onclick="saveAuthor({{ $book->id }});" type="submit" class="btn btn-info">
                                     <i class="fa fa-floppy-o" aria-hidden="true"></i>
                                   </button>
                                 </div>
-                                <div class="pull-right" id="author-edit-{{ $book->id }}">
+                                <div class="pull-right" id="author_edit_{{ $book->id }}">
                                   <button onclick="editAuthor({{ $book->id }});" type="button" class="btn btn-info">
                                     <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
                                   </button>
