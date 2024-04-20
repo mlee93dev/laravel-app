@@ -80,8 +80,8 @@
 
                 <!-- Table Headings -->
                 <thead>
-                    <th role="button" onclick=>Title</th>
-                    <th role="button">Author</th>
+                    <th role="button" onclick="window.location='{{ route('books.getSorted', ['sort' => 'title']) }}'">Title</th>
+                    <th role="button" onclick="window.location='{{ route('books.getSorted', ['sort' => 'author']) }}'">Author</th>
                     <th class="text-center">Delete</th>
                 </thead>
 

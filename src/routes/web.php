@@ -13,12 +13,10 @@
 
 Route::get('/', 'BooksController@show');
 
+Route::get('/books/{sort}', 'BooksController@showSorted')->name('books.getSorted');
+
 Route::post('/book', 'BooksController@add');
 
 Route::patch('/book/{id}', 'BooksController@update')->name('book.update');
-
-Route::get('/book', function (Request $request) {
-  //
-});
 
 Route::delete('/book/{id}', 'BooksController@delete');

@@ -17,6 +17,15 @@ class BooksController extends Controller
       ]);
     }
 
+    public function showSorted($sort)
+    {
+      $books = Book::orderBy($sort, 'asc')->get();
+
+      return view('books', [
+        'books' => $books
+      ]);
+    }
+
     public function add(Request $request)
     {
       $validator = Validator::make($request->all(), [
