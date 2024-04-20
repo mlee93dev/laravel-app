@@ -1,7 +1,38 @@
 @extends('layouts.app')
  
 @section('content')
-  
+
+    <script>
+      function editAuthor(id)
+      {
+          document.getElementById(`author_span_${id}`).classList.add("hidden");
+          document.getElementById(`author_input_${id}`).classList.remove("hidden");
+          document.getElementById(`author_edit_${id}`).classList.add("hidden");
+          document.getElementById(`author_save_${id}`).classList.remove("hidden");
+          document.getElementById(`author_cancel_${id}`).classList.remove("hidden");
+      }
+
+      function saveAuthor(id)
+      {
+          document.getElementById(`author_span_${id}`).innerText = document.getElementById(`author_input_${id}`).value;
+
+          document.getElementById(`author_span_${id}`).classList.remove("hidden");
+          document.getElementById(`author_input_${id}`).classList.add("hidden");
+          document.getElementById(`author_edit_${id}`).classList.remove("hidden");
+          document.getElementById(`author_save_${id}`).classList.add("hidden");
+          document.getElementById(`author_cancel_${id}`).classList.add("hidden");
+      }
+
+      function cancelEditAuthor(id)
+      {
+          document.getElementById(`author_span_${id}`).classList.remove("hidden");
+          document.getElementById(`author_input_${id}`).classList.add("hidden");
+          document.getElementById(`author_edit_${id}`).classList.remove("hidden");
+          document.getElementById(`author_save_${id}`).classList.add("hidden");
+          document.getElementById(`author_cancel_${id}`).classList.add("hidden");
+      }
+    </script>
+
     <div class="panel panel-default">
 
         <div class="panel-heading">
@@ -41,37 +72,6 @@
         </div>
 
     </div>
- 
-    <script>
-      function editAuthor(id)
-      {
-          document.getElementById(`author_span_${id}`).classList.add("hidden");
-          document.getElementById(`author_input_${id}`).classList.remove("hidden");
-          document.getElementById(`author_edit_${id}`).classList.add("hidden");
-          document.getElementById(`author_save_${id}`).classList.remove("hidden");
-          document.getElementById(`author_cancel_${id}`).classList.remove("hidden");
-      }
-
-      function saveAuthor(id)
-      {
-          document.getElementById(`author_span_${id}`).innerText = document.getElementById(`author_input_${id}`).value;
-
-          document.getElementById(`author_span_${id}`).classList.remove("hidden");
-          document.getElementById(`author_input_${id}`).classList.add("hidden");
-          document.getElementById(`author_edit_${id}`).classList.remove("hidden");
-          document.getElementById(`author_save_${id}`).classList.add("hidden");
-          document.getElementById(`author_cancel_${id}`).classList.add("hidden");
-      }
-
-      function cancelEditAuthor(id)
-      {
-          document.getElementById(`author_span_${id}`).classList.remove("hidden");
-          document.getElementById(`author_input_${id}`).classList.add("hidden");
-          document.getElementById(`author_edit_${id}`).classList.remove("hidden");
-          document.getElementById(`author_save_${id}`).classList.add("hidden");
-          document.getElementById(`author_cancel_${id}`).classList.add("hidden");
-      }
-    </script>
 
     <!-- Books List -->
     @if (count($books) > 0)
@@ -80,8 +80,8 @@
 
                 <!-- Table Headings -->
                 <thead>
-                    <th>Title</th>
-                    <th>Author</th>
+                    <th role="button" onclick=>Title</th>
+                    <th role="button">Author</th>
                     <th class="text-center">Delete</th>
                 </thead>
 
