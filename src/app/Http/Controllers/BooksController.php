@@ -12,9 +12,30 @@ class BooksController extends Controller
     {
       $sort = $request->input('sort') ? $request->input('sort') : 'created_at';
       $books = Book::orderBy($sort, 'asc')->get();
-      // $filter = $request->input('filter');
+
+      // dd($books);
       return view('books', [
         'books' => $books
+      ]);
+    }
+
+    public function search(Request $request)
+    {
+      $validator = Validator::make($request->all(), [
+        'search' => 'max:255'
+      ]);
+    
+      if ($validator->fails()) {
+        return redirect('/')
+            ->withInput()
+            ->withErrors($validator);
+      }
+
+      $books = Book::where('title', 'LIKE', "%{$request->search}%")
+                 ->orWhere('author', 'LIKE', "%{$request->search}%");
+
+      return view('books', [
+        'books' => $books->get()
       ]);
     }
 

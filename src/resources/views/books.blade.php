@@ -76,10 +76,12 @@
     <!-- Books Search -->
     <div class="panel panel-default">
       <div class="panel-heading">
-        <form action="{{ url('books') }}" method="POST" class="form-horizontal">
+        <form action="{{ url('search') }}" method="POST" class="form-horizontal">
+          {{ csrf_field() }}
+          {{ method_field('GET') }}
           <div class="form-group">
             <div class="col-sm-4">
-              <input type="text" id="search" placeholder="Search by title or author" class="form-control">
+              <input type="text" id="search" name="search" placeholder="Search by title or author" class="form-control">
             </div>
 
             <div class="col-sm-1">

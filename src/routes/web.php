@@ -15,7 +15,7 @@ Route::get('/', 'BooksController@show');
 
 Route::get('/?sort={sort}', 'BooksController@show')->name('books.getSorted');
 
-// Route::get('/books', 'BooksController@showFiltered');
+Route::get('/search', 'BooksController@search');
 
 Route::post('/book', 'BooksController@add');
 
