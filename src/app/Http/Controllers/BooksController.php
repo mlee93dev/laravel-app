@@ -8,19 +8,11 @@ use App\Book;
 
 class BooksController extends Controller
 {
-    public function show()
+    public function show(Request $request)
     {
-      $books = Book::orderBy('created_at', 'asc')->get();
-
-      return view('books', [
-        'books' => $books
-      ]);
-    }
-
-    public function showSorted($sort)
-    {
+      $sort = $request->input('sort') ? $request->input('sort') : 'created_at';
       $books = Book::orderBy($sort, 'asc')->get();
-
+      // $filter = $request->input('filter');
       return view('books', [
         'books' => $books
       ]);

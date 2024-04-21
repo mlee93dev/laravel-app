@@ -44,7 +44,7 @@
   
               <!-- Book Title -->
               <div class="form-group">
-                  <label for="book" class="col-sm-3 control-label">Title <span class="text-danger">*</span></label>
+                  <label for="title" class="col-sm-3 control-label">Title <span class="text-danger">*</span></label>
   
                   <div class="col-sm-2">
                       <input type="text" name="title" id="title" class="form-control">
@@ -53,7 +53,7 @@
 
               <!-- Book Author -->
               <div class="form-group">
-                  <label for="book" class="col-sm-3 control-label">Author <span class="text-danger">*</span></label>
+                  <label for="author" class="col-sm-3 control-label">Author <span class="text-danger">*</span></label>
             
                   <div class="col-sm-2">
                       <input type="text" name="author" id="author" class="form-control">
@@ -71,6 +71,23 @@
           </form>
         </div>
 
+    </div>
+
+    <!-- Books Search -->
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <form action="{{ url('books') }}" method="POST" class="form-horizontal">
+          <div class="form-group">
+            <div class="col-sm-4">
+              <input type="text" id="search" placeholder="Search by title or author" class="form-control">
+            </div>
+
+            <div class="col-sm-1">
+              <button type="submit" class="btn btn-success"> Search </button>
+            </div>
+          </div>
+        </form>
+      </div>
     </div>
 
     <!-- Books List -->
