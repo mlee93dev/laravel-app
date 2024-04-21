@@ -13,7 +13,6 @@ class BooksController extends Controller
       $sort = $request->input('sort') ? $request->input('sort') : 'created_at';
       $books = Book::orderBy($sort, 'asc')->get();
 
-      // dd($books);
       return view('books', [
         'books' => $books
       ]);
