@@ -91,6 +91,29 @@ class BooksController extends Controller
       $format = $request->format_select;
       $columns = $request->columns_select;
 
-      dd($format, $columns);
+      if ($columns === 'all') {
+        $books = Book::select('title', 'author')->get()->toArray();
+      } else {
+        $books = Book::select($columns)->get()->toArray();
+      }
+      $formatter = Formatter::make($books, Formatter::ARR);
+
+      if ($format === 'csv') {
+        $headers = [
+          'Content-Type' => 'text/csv',
+          'Content-Disposition' => 'attachment; filename=books.csv',
+        ];
+        $csv = $formatter->toCsv();
+
+        return \Response::make($csv, 200, $headers);
+      } else {
+        $headers = [
+          'Content-Type' => 'text/xml',
+          'Content-Disposition' => 'attachment; filename=books.xml',
+        ];
+        $xml = $formatter->toXml();
+
+        return \Response::make($xml, 200, $headers);
+      }
     }
 }

@@ -95,9 +95,7 @@
     <!-- Books Download -->
     <div class="panel panel-default">
       <div class="panel-heading">
-        <form action="{{ url('download') }}" method="POST" class="form-horizontal">
-          {{ csrf_field() }}
-          {{ method_field('GET') }}
+        <form action="{{ url('download') }}" method="GET" class="form-horizontal">
           <div class="form-group">
             <div class="col-sm-4">
               <label for="columns_select">Column(s) to download:</label>
