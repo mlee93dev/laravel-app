@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use App\Book;
+use SoapBox\Formatter\Formatter;
 
 class BooksController extends Controller
 {
@@ -83,5 +84,13 @@ class BooksController extends Controller
       ]);
 
       return redirect('/');
+    }
+
+    public function download(Request $request)
+    {
+      $format = $request->format_select;
+      $columns = $request->columns_select;
+
+      dd($format, $columns);
     }
 }

@@ -92,6 +92,41 @@
       </div>
     </div>
 
+    <!-- Books Download -->
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <form action="{{ url('download') }}" method="POST" class="form-horizontal">
+          {{ csrf_field() }}
+          {{ method_field('GET') }}
+          <div class="form-group">
+            <div class="col-sm-4">
+              <label for="columns_select">Column(s) to download:</label>
+
+              <select id="columns_select" name="columns_select" class="form-control">
+                <option value="all">Title & Author</option>
+                <option value="title">Title</option>
+                <option value="author">Author</option>
+              </select>
+            </div>
+
+            <div class="col-sm-4">
+              <label for="format_select">File format:</label>
+
+              <select id="format_select" name="format_select" class="form-control">
+                <option value="csv">CSV</option>
+                <option value="xml">XML</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-group">
+            <div class="col-sm-1">
+              <button type="submit" class="btn btn-success"> Download </button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+
     <!-- Books List -->
     @if (count($books) > 0)
         <div class="panel panel-default"> 

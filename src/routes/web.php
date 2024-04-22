@@ -17,6 +17,8 @@ Route::get('/?sort={sort}', 'BooksController@show')->name('books.getSorted');
 
 Route::get('/search', 'BooksController@search');
 
+Route::get('/download', 'BooksController@download');
+
 Route::post('/book', 'BooksController@add');
 
 Route::patch('/book/{id}', 'BooksController@update')->name('book.update');
