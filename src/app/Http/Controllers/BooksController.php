@@ -79,7 +79,10 @@ class BooksController extends Controller
             ->withErrors($validator);
       }
 
-      $book = Book::where('id', $id)->update([
+      $author = Book::select('author')->from('Books')->where('id', $id)->first()->author;
+      $books = Book::where('author', $author);
+
+      $books->update([
         'author' => $request->get('author_input_'.$id)
       ]);
 
