@@ -20,8 +20,6 @@ class SearchTest extends TestCase
         $book = ['title' => 'foo', 'author' => 'bar'];
         $books = factory(Book::class)->create($book);
 
-        // dd($books->get());
-
         $response = $this->get('/search?search=foo');
         $response->assertSuccessful();
         $response->assertViewIs('books');
