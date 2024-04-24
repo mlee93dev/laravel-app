@@ -5,6 +5,7 @@ namespace Tests\Feature;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;
 use Tests\TestCase;
+use App\Book;
 
 class AddBook extends TestCase
 {
@@ -16,10 +17,7 @@ class AddBook extends TestCase
      */
     public function testAddBook()
     {
-        $book = [
-          'title' => 'foo',
-          'author' => 'bar'
-        ];
+        $book = factory(Book::class)->make()->toArray();
         
         $this->post('/book', $book);
 
