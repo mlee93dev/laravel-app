@@ -17,7 +17,7 @@ class AddBook extends TestCase
      */
     public function testAddBook()
     {
-        $book = factory(Book::class)->make()->toArray();
+        $book = ['title' => 'foo', 'author' => 'bar'];
         
         $this->post('/book', $book);
 
