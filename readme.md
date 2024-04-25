@@ -1,7 +1,8 @@
-### Local Deployment Setup
+# Books Application
 
 ## Local Deployment
 
+### Steps
 1. Clone the repository.
 1. Make sure PHP (>7.4), MySQL and Composer are installed.
 1. Run a local MySQL server by running `brew services start mysql`. Root into the server by running `mysql -u root `.
@@ -14,15 +15,15 @@
 
 ## Testing
 
-1. Run `./vendor/bin/phpunit` to run the suite of tests.
+Run `./vendor/bin/phpunit` to run the suite of tests.
 
-### Docker Setup
+## Docker Setup
 
-## Requirements
+### Requirements
 - [Docker](https://docs.docker.com/install)
 - [Docker Compose](https://docs.docker.com/compose/install)
 
-## Steps
+### Steps
 1. Start the containers by running `docker-compose up -d` in the project root.
 1. Install the composer packages by running `docker-compose exec laravel composer install`.
 1. Run `docker ps` and copy and paste the container id of the Laravel container.
