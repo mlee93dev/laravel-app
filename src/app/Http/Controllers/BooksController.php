@@ -60,8 +60,9 @@ class BooksController extends Controller
       return redirect('/');
     }
 
-    public function delete(Book $book)
+    public function delete(Request $request, $id)
     {
+      $book = Book::find($id);
       $book->delete();
  
       return redirect('/');
@@ -79,7 +80,7 @@ class BooksController extends Controller
             ->withErrors($validator);
       }
 
-      $author = Book::select('author')->from('Books')->where('id', $id)->first()->author;
+      $author = Book::select('author')->from('books')->where('id', $id)->first()->author;
       $books = Book::where('author', $author);
 
       $books->update([
